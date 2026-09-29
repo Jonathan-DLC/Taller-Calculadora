@@ -1,0 +1,24 @@
+{
+  "name": "taller-calculadora",
+  "version": "1.0.0",
+  "description": "- Andres Felipe Florez Paternina - Jhonatan Lozano",
+  "main": "Ejercicio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonathan-DLC/Taller-Calculadora.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Jonathan-DLC/Taller-Calculadora/issues"
+  },
+  "homepage": "https://github.com/Jonathan-DLC/Taller-Calculadora#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
