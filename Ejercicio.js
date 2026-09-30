@@ -1,51 +1,69 @@
 const prompt = require('prompt-sync')();
 
-let activo = true;
+function sumar(a, b) {
+  return a + b;
+}
 
-let contadorOperaciones = 0;
+function restar(a, b) {
+  return a - b;
+}
 
-console.log("=== BIENVENIDO AL MINI CAJERO ===");
+function multiplicar(a, b) {
+  return a * b;
+}
 
-while (activo) {
+function dividir(a, b) {
+  if (b === 0) {
+    return "Error: No se puede dividir entre cero";
+  }
+  return a / b;
+}
 
-  let numero1 = Number(prompt("Ingresa el primer número: "));
-  let operacion = prompt("Ingresa la operación (+, -, *, /): ");
-  let numero2 = Number(prompt("Ingresa el segundo número: "));
-
-  let resultado;
-
+function procesarCalculo(numero1, operacion, numero2) {
   if (operacion === "+") {
-    resultado = numero1 + numero2;
+    return sumar(numero1, numero2);
   } else if (operacion === "-") {
-    resultado = numero1 - numero2;
+    return restar(numero1, numero2);
   } else if (operacion === "*") {
-    resultado = numero1 * numero2;
+    return multiplicar(numero1, numero2);
   } else if (operacion === "/") {
-    
-    if (numero2 === 0) {
-      resultado = "Error: No se puede dividir entre cero";
-    } else {
-      resultado = numero1 / numero2;
-    }
+    return dividir(numero1, numero2);
   } else {
-    
-    resultado = "Operación no válida";
-  }
-
-  console.log("-----------------------------------");
-  console.log("Resultado: " + resultado);
-  console.log("-----------------------------------\n");
-
-  if (resultado !== "Operación no válida") {
-    contadorOperaciones = contadorOperaciones + 1;
-  }
-
-  let respuesta = prompt("¿Deseas hacer otra operación? (si/no): ");
-
-  if (respuesta === "no") {
-    activo = false;
+    return "Operación no válida";
   }
 }
 
-console.log("\nSesión cerrada. ¡Hasta luego!");
-console.log("Operaciones realizadas en esta sesión: " + contadorOperaciones);
+function iniciarCajero() {
+  let activo = true;
+  let contadorOperaciones = 0;
+
+  console.log("=== BIENVENIDO AL MINI CAJERO ===");
+
+  while (activo) {
+    let numero1 = Number(prompt("Ingresa el primer número: "));
+    let operacion = prompt("Ingresa la operación (+, -, *, /): ");
+    let numero2 = Number(prompt("Ingresa el segundo número: "));
+
+    let resultado = procesarCalculo(numero1, operacion, numero2);
+
+    console.log("-----------------------------------");
+    console.log("Resultado: " + resultado);
+    console.log("-----------------------------------\n");
+
+    if (resultado !== "Operación no válida") {
+      contadorOperaciones = contadorOperaciones + 1;
+    }
+
+    let respuesta = prompt("¿Deseas hacer otra operación? (si/no): ");
+
+    if (respuesta === "no") {
+      activo = false;
+    }
+  }
+
+  console.log("\nSesión cerrada. ¡Hasta luego!");
+  console.log("Operaciones realizadas en esta sesión: " + contadorOperaciones);
+}
+
+
+iniciarCajero();
